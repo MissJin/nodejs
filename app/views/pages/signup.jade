@@ -1,0 +1,21 @@
+extends ../layout.jade
+block content
+	.container
+		.row
+			.col-md-5
+				form(method="post", action="/user/signup")
+					.modal-header 
+					.modal-body
+						.form-group
+							label(for="signupName") 昵称
+							input#signupName.form-control(name="user[name]", type="text")
+						.form-group
+							label(for="signupMobile") 电话
+							input#signupMobile.form-control(name="user[mobile]", type="text")
+
+						.form-group
+							label(for="signupPassword") 密码
+							input#signupPassword.form-control(name="user[password]", type="password")
+					.modal-footer
+						button.btn.btn-success(type="submit") 确定
+						button.btn.btn-default(type="button", data-dismiss="modal") 取消

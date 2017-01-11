@@ -1,0 +1,15 @@
+extends ../layout.jade
+block content
+	.container
+		.row
+			form.form-horizontal(method="post", action="/admin/category/save")
+				input(type="hidden", name="category[_id]", value="#{category.id}")
+				.form-group
+					label.col-sm-2.control-label(for="inputCategory") 电影类别名
+					.col-sm-10
+						input#inputCategory.form-control(type="text", name="category[name]", value="#{category.name}")
+				.form-group
+					.col-sm-12
+						button.btn.btn-primary(type="submit") 提交
+
+

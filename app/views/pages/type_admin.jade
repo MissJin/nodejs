@@ -1,0 +1,15 @@
+extends ../layout.jade
+block content
+	.container
+		.row
+			form.form-horizontal(method="post", action="/admin/type/save")
+				input(type="hidden", name="type[_id]", value="#{type.id}")
+				.form-group
+					label.col-sm-2.control-label(for="inputtype") 投票者类别名
+					.col-sm-10
+						input#inputtype.form-control(type="text", name="type[name]", value="#{type.name}")
+				.form-group
+					.col-sm-12
+						button.btn.btn-primary(type="submit") 提交
+
+

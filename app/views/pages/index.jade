@@ -1,0 +1,35 @@
+extends ../layout.jade
+
+block content
+	script(src="/js/voteList.js")
+	.container(style='margin-top:60px;margin-bottom:100px;')
+		.row
+			p(style="color:red;") 说明：每个帐号每天只能投【#{voteTime}】票，超过不算
+		.row
+			each item in types
+				.panel.panel-success
+					.panel-heading
+						h3 #{item.name}
+					.panel-body
+						if item.voteds && item.voteds.length > 0
+							each voted in item.voteds
+								.col-md-2
+									.thumbnail
+										//- a(href="/voted/#{voted._id}")
+										img(src="#{voted.image}",alt="#{voted.name}",style="width:147.5px;height:206.5px;margin:1px;")
+										.caption
+											h3 #{voted.name}
+											h5 #{voted.summary}
+											if user
+												label.form-inline 得票数：
+												#voteNumber.badge(data-id="#{voted._id}") #{voted.total} 
+												button.btn.btn-primary.voteOne(type="button", data-id="#{voted._id}",data-user_id="#{user._id}") 投票
+											else
+												label.form-inline 得票数：
+												#voteNumber.badge(data-id="#{voted._id}") #{voted.total}
+												button.btn.btn-primary.voteOne(type="button", data-id="#{voted._id}",data-user_id="") 投票
+												//- p: a.btn.btn-primary(href="voteList/?voted_id=#{voted._id}&user_id=#{user._id}", role="button") 投票
+	//- 更新投票的数字
+	script(src="/js/updateVoteNumber.js")
+
+								

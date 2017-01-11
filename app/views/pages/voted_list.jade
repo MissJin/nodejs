@@ -1,0 +1,37 @@
+extends ../layout.jade
+
+block content
+	script(src="/js/voted_admin.js")
+	.container
+		.row
+			table.table.table-hover.table-bordered
+				thead
+					tr
+						th 标题
+						th 简称
+						th 描述
+						th 图片路径
+						th 录入时间
+						th 更新时间
+						th 查看
+						th 更新
+						th 删除
+				tbody
+					each item in voteds
+						tr(class="item-id-#{item._id}")
+							td #{item.title}
+							td #{item.name}
+							td #{item.summary}
+							td 
+								img(src="#{item.image}" style="width:147.5px;height:206.5px;margin:5px;")
+							td #{moment(item.meta.createAt).format('YYYY-MM-DD')}
+							td #{moment(item.meta.updateAt).format('YYYY-MM-DD')}
+							td 
+								a(href="/voted/#{item._id}", target="_blank") 查看
+							td 
+								a(href="/admin/voted/update/#{item._id}", target="_blank") 更新
+							td 
+								button.btn.btn-danger.del(type="button", data-id="#{item._id}") 删除
+							
+							
+							

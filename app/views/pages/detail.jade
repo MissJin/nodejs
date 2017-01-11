@@ -1,0 +1,65 @@
+extends ../layout.jade
+
+block content
+	script(src="/js/comment.js")
+	.container
+		.row
+			.col-md-7
+				embed(src="#{movie.flash}",allowFullScreen="true",allowFullScreenInteractive="true",allowscriptaccess="always", type="application/x-shockwave-flash",wmode="opaque", quality="high", width="720", height="600", align="middle", flashvars="abtest=0&referrer=http%3A%2F%2Fwww.tudou.com%2Falbumcover%2F6NlU0hLlAjU.html&href=http%3A%2F%2Fwww.tudou.com%2Falbumplay%2F6NlU0hLlAjU%2FUO-UqF69W6A.html&USER_AGENT=Mozilla%2F5.0%20(Windows%20NT%2010.0%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F49.0.2623.112%20Safari%2F537.36&areaCode=530100&yjuid=&yseid=1474619346515ZZkCkM&ypvid=1474623909134IapkZ5&yrpvid=1474619682807FMF3FN&yrct=0&frame=0&noCookie=0&yseidtimeout=1474631109134&yseidcount=1&fac=1&aop=0&listType=6&listCode=6NlU0hLlAjU&listId=249367&lid=0&paid=&paidTime=&paidType=&lshare=1&license=&tdReg=&exclusive=0&icode=UO-UqF69W6A&iid=132695303&sp=http://r3.ykimg.com/0543040856AC67AE6A0A480461BA0858&segs=&tvcCode=-1&channel=22&tict=3&hd=1&ol=0&olw=-1&olh=-1&olr=-1&kw=%E7%BE%8E%E5%A5%B3%22%E6%AF%81%E5%AE%B9%22%E5%8F%98%E5%A6%96%E5%90%8E%E3%80%8A%E6%9C%80%E5%90%8E%E7%9A%84%E5%B7%AB%E5%B8%88%E7%8C%8E%E4%BA%BA%E3%80%8B%22%E5%A5%B3%E5%B7%AB%22%E7%89%B9%E8%BE%91&mediaType=vi&np=0&sh=0.0000&st=0.0000&videoOwner=113077064&ocode=KgMXHJNdZ5E&time=459&vcode=XMTQ2MTA1ODkyNA==&ymulti=&lang=&isFeature=1&is1080p=0&hasWaterMark=0&actionID=0&resourceId=&tpa=&cs=7_414%7C415%7C418&k=%E5%A5%87%E5%B9%BB%7C%E5%86%92%E9%99%A9%7C%E5%8A%A8%E4%BD%9C&prd=Summit%20Entertainment%2CAperture%20Entertainment%2CSND%2CCathay-Keris%20Films%2CSummit%20Entertainment%2CConcorde%20Filmverleih&uid=0&ucode=&mmid=0&juid=01atb2j3hrivh&seid=01atb6ub8f96s&showWS=0&ahcb=0&wtime=0&lb=0&scale=0&dvd=0&hideDm=0&pepper=http://css.tudouui.com/bin/lingtong/pepper.swz&panelEnd=http://css.tudouui.com/bin/lingtong/PanelEnd_13.swz&panelRecm=http://css.tudouui.com/bin/lingtong/PanelRecm_9.swz&panelShare=http://css.tudouui.com/bin/lingtong/PanelShare_7.swz&panelCloud=http://css.tudouui.com/bin/lingtong/PanelCloud_12.swz&panelDanmu=http://css.tudouui.com/bin/lingtong/PanelDanmu_18.swz&aca=&aid=249367")
+
+			.col-md-5
+				dl.dl-horizontal
+					dt 电影名
+					dd #{movie.title}
+					dt 导演
+					dd #{movie.doctor}
+					dt 国家
+					dd #{movie.country}
+					dt 语言
+					dd #{movie.language}
+					dt 上映年份
+					dd #{movie.year}
+					dt 简介
+					dd #{movie.summary}
+		.row
+			.col-md-7
+				hr
+				#comments
+					form#commentForm(method="post", action="/user/comment/save")
+						input(type="hidden", name="comment[movie]", value="#{movie._id}")
+						if user
+							input(type="hidden", name="comment[from]", value="#{user._id}")
+						.form-group
+							textarea.form-control(name="comment[content]",row="3")
+						if user
+							button.btn.btn-primary(type="submit") 提交评论
+						else
+							a.navbar-link(href="#", data-toggle="modal", data-target="#signinModal") 登入后评论	
+				hr
+				h3 评论：
+				each item in comments
+					li.media.list-group-item
+						.pull-left
+							img(src="http://img.mukewang.com/557fcfda0001a05201800180-100-100.jpg",alt="头像", style="width:64px;height:64px;border-radius:50%")
+							//- imag.media-object(src="data:image/svg+html;base64,", style="width:64px;height:64px")
+						.media-body
+							h4.media-heading 【#{item.from.name}】【#{moment(item.meta.createAt).format('YYYY-MM-DD HH:mm:ss')}】
+								a.comment(href="#comments", data-cid="#{item._id}", data-toid="#{item.from._id}") 点击回复 
+							p #{item.content}
+
+						if item.reply && item.reply.length>0
+							each reply in item.reply
+								il.media.list-group-item
+									.pull-left
+										img(src="http://img.mukewang.com/557fcfda0001a05201800180-100-100.jpg",alt="头像", style="width:64px;height:64px;border-radius:50%")
+										//- imag.media-object(src="data:image/svg+html;base64,", style="width:64px;height:64px")
+									.media-body
+										h4.media-heading 【#{moment(reply.createAt).format('YYYY-MM-DD HH:mm:ss')}】
+											【#{reply.from.name}】
+											span.text-info 回复了
+											【#{reply.to.name}】
+											a.comment(href="#comments", data-cid="#{item._id}", data-toid="#{reply.from._id}") 点击回复 
+										p #{reply.content}
+				hr
+
+

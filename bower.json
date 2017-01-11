@@ -1,0 +1,25 @@
+{
+  "name": "vote",
+  "authors": [
+    "1476932600@qq.com"
+  ],
+  "description": "小黄的测试项目",
+  "main": "",
+  "keywords": [
+    "movie"
+  ],
+  "license": "MIT",
+  "homepage": "localhost:2016/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

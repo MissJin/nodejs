@@ -1,0 +1,35 @@
+extends ../layout.jade
+block content
+	.container
+		.row
+			form.form-horizontal(method="post", action="/admin/voted/save")
+				input(type="hidden", name="voted[_id]", value="#{voted._id}")
+				.form-group
+					label.col-sm-2.control-label(for="inputTitle") 标题
+					.col-sm-10
+						input#inputTitle.form-control(type="text", name="voted[title]", value="#{voted.title}")
+				.form-group
+					label.col-sm-2.control-label(for="inputName") 简称
+					.col-sm-10
+						input#inputName.form-control(type="text", name="voted[name]", value="#{voted.name}")
+				.form-group
+					label.col-sm-2.control-label(for="inputSelectTypes") 分类选择
+					.col-sm-10
+						each item in types
+							label.radio-inline
+								input#inputSelectTypes(type="radio", name="voted[type]", value=item._id) 
+								|#{item.name}
+				.form-group
+					label.col-sm-2.control-label(for="inputImage") 图片地址
+					.col-sm-10
+						input#inputImage.form-control(type="text", name="voted[image]", value="#{voted.image}")
+				.form-group
+					label.col-sm-2.control-label(for="inputSummary") 描述
+					.col-sm-10
+						input#inputSummary.form-control(type="text", name="voted[summary]", value="#{voted.summary}")
+
+				.form-group
+					.col-sm-12
+						button.btn.btn-primary(type="submit") 提交
+
+
