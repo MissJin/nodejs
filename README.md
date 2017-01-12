@@ -49,10 +49,14 @@ npm install wechat wechat-api --save
 或者
 
 npm install wechat-koa --save
+
 4、===============================================================
->PC端的浏览效果图![github](https://github.com/MissJin/nodejs/blob/master/PC%E6%B5%8F%E8%A7%88%E6%95%88%E6%9E%9C.png "github")
+>PC端的浏览效果图
+![github](https://github.com/MissJin/nodejs/blob/master/PC%E6%B5%8F%E8%A7%88%E6%95%88%E6%9E%9C.png "github")
 </br>
->手机端的浏览效果![github](https://github.com/MissJin/nodejs/blob/master/%E6%89%8B%E6%9C%BA%E7%AB%AF%E6%95%88%E6%9E%9C.png "github")
+>手机端的浏览效果
+![github](https://github.com/MissJin/nodejs/blob/master/%E6%89%8B%E6%9C%BA%E7%AB%AF%E6%95%88%E6%9E%9C.png "github")
 </br>
->接入微信端的效果![github](微信端效果 "github")
+>接入微信端的效果
+![github](微信端效果 "github")
 
