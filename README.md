@@ -1,10 +1,9 @@
 【设计者：黄常锦 			】
-【电  话：14787895215		】
 【邮  箱：1476932600@qq.com 】
 【github:https://github.com/MissJin】
-启动系统流程:
-1、#####################################################################
-先启动mongose
+###启动系统流程:
+1、==========================================
+>先启动mongose
 
 cd mongose的安装bin目录
 
@@ -35,23 +34,25 @@ db.shutdownServer();//关闭服务
 db.dropDatebase();//删除数据库（小心）
 
 
-2、######################################################################
-启动系统
+2、===============================================================
+>启动系统
 
 node app 或者 grunt
 
 输入地址：http://localhost:2016访问首页
 
 
-3、#####################################################################
-微信的接入
+3、==============================================================
+>微信的接入
 
 npm install wechat wechat-api --save
 或者
 
 npm install wechat-koa --save
-4、###################################################################
-![github](https://github.com/MissJin/nodejs/blob/master/PC%E6%B5%8F%E8%A7%88%E6%95%88%E6%9E%9C.png "github")
-![github](https://github.com/MissJin/nodejs/blob/master/%E6%89%8B%E6%9C%BA%E7%AB%AF%E6%95%88%E6%9E%9C.png "github")
-![github](微信端效果 "github")
+4、===============================================================
+>PC端的浏览效果图![github](https://github.com/MissJin/nodejs/blob/master/PC%E6%B5%8F%E8%A7%88%E6%95%88%E6%9E%9C.png "github")
+</br>
+>手机端的浏览效果![github](https://github.com/MissJin/nodejs/blob/master/%E6%89%8B%E6%9C%BA%E7%AB%AF%E6%95%88%E6%9E%9C.png "github")
+</br>
+>接入微信端的效果![github](微信端效果 "github")
 
