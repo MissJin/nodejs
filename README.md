@@ -61,5 +61,7 @@ npm install wechat-koa --save
 
 >接入微信端的效果
 
-![github](微信端效果 "github")
+![github](https://github.com/MissJin/nodejs/blob/master/%E5%BE%AE%E4%BF%A1%E7%AB%AF%E6%95%88%E6%9E%9C.png "github")
+
+![github](https://github.com/MissJin/nodejs/blob/master/%E5%BE%AE%E4%BF%A1%E7%AB%AF%E6%95%88%E6%9E%9C1.png "github")
 
