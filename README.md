@@ -65,3 +65,8 @@ npm install wechat-koa --save
 
 ![github](https://github.com/MissJin/nodejs/blob/master/%E5%BE%AE%E4%BF%A1%E7%AB%AF%E6%95%88%E6%9E%9C1.png "github")
 
+>关注微信，查看微信端的效果
+
+![github](http://mmbiz.qpic.cn/mmbiz_jpg/DyHgJsmmicL0ymt9TeekGb5mcPgdibdt0K1AKzib2KuRuztWKCuTlIvzCUzcfe9YFkJUQ2Ahx6zH15SNPnAfQeDuw/0 "github")
+
+
